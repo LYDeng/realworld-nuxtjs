@@ -60,7 +60,8 @@
   </div>
 </template>
 <script>
-import { getArticles, createArticle, updateArticle } from "@/api/article";
+import { createArticle, getArticlesDetil, updateArticle } from '@/api/article'
+
 export default {
   middleware: "authenticated",
   name: "EditorIndex",
@@ -77,7 +78,7 @@ export default {
   },
   async mounted() {
     if (this.$route.params.slug) {
-      const { data } = await getArticle(this.$route.params.slug);
+      const { data } = await getArticlesDetil(this.$route.params.slug);
       this.article = data.article;
       this.article.tagList = this.article.tagList.toString();
     }
@@ -99,10 +100,12 @@ export default {
       this.btnDisabled = true;
       try {
         const article = this.article;
-        article.tagList = article.tagList.split(",");
+        // article.tagList = article.tagList ? article.tagList.split(",") : article.tagList;
+        //        console.log(data);
         const { data } = this.$route.params.slug
           ? await updateArticle(article)
           : await createArticle({ article });
+          console.log(data);
         this.$router.push({
           name: "article",
           params: {

@@ -138,12 +138,14 @@
 </template>
 <script>
 import { getProfile, follow, unfollow } from "@/api/profile";
+import { getArticles } from '@/api/article'
 import { mapState } from "vuex";
 export default {
   middleware: "authenticated",
   name: "UserProfile",
-  async asyncData({ param }) {
-    const { data } = await getProfile(param.username);
+  async asyncData({ query , params }) {
+    console.log(params);
+    const { data } = await getProfile(params.username);
     const { profile } = data;
     profile.followDisabled = false;
 

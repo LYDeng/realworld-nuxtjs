@@ -7,7 +7,7 @@
 import axios from 'axios'
 
 export const request = axios.create({
-  baseURL: 'https://conduit.productionready.io' //基础路径
+  baseURL: 'http://realworld.api.fed.lagounews.com/' //基础路径
 })
 //通过插件机制获取上下文例如（query,params,req,res,app,store）
 //插件导出函数必须作为default成员
