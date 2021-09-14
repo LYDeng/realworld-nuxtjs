@@ -1,7 +1,7 @@
 /*
  * @Date: 2021-09-10 15:42:15
  * @LastEditors: lyd
- * @LastEditTime: 2021-09-14 15:54:33
+ * @LastEditTime: 2021-09-14 17:03:28
  * @Description: Nuxt.js配置文件
  */
 module.exports = {
@@ -58,7 +58,6 @@ module.exports = {
   server: {
     port: 3000, // default: 3000
     host: '0.0.0.0', // default: localhost,
-    // timing: false
   },
   // 注册插件
   plugins: [
